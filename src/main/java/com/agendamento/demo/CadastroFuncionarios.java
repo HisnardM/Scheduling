@@ -1,4 +1,4 @@
-package com.agendamento.demo.funcionario_e_cadastro;
+package com.agendamento.demo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
