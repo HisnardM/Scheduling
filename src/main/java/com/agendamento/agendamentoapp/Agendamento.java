@@ -1,65 +1,56 @@
 package com.agendamento.agendamentoapp;
-public class Agendamento {
-    
-    public class agendamento {
-    
-    private String id;
-    private String profissional;
-    private String serviços;
-    private String parte; //parte do corpo
-    private String data;
-    private String horario;
-    private String status;
-    private String atendente;
+import java.time.LocalDateTime;
 
-    public String getId() {
+public class Agendamento {
+    private static int proximoId = 1;
+    private int id;
+    private LocalDateTime dataHora;
+    private String status;
+    private Funcionarios funcionario;
+    private AreasCorpo areaCorpo;
+    private Procedimento procedimento;
+    private Clientes clientes;
+
+    public Agendamento(LocalDateTime dataHora, Funcionarios funcionario, AreasCorpo areaCorpo, Procedimento procedimento, Clientes clientes) {
+        this.id = proximoId++;
+        this.dataHora = dataHora;
+        this.status = "marcado";
+        this.funcionario = funcionario;
+        this.areaCorpo = areaCorpo;
+        this.procedimento = procedimento;
+        this.clientes = clientes;
+    }
+
+    // Getters e setters
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
-        this.id = id;
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
     }
-    public String getProfissional() {
-        return profissional;
-    }
-    public void setProfissional(String profissional) {
-        this.profissional = profissional;
-    }
-    public String getServiços() {
-        return serviços;
-    }
-    public void setServiços(String serviços) {
-        this.serviços = serviços;
-    }
-    public String getParte() {
-        return parte;
-    }
-    public void setParte(String parte) {
-        this.parte = parte;
-    }
-    public String getData() {
-        return data;
-    }
-    public void setData(String data) {
-        this.data = data;
-    }
-    public String getHorario() {
-        return horario;
-    }
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
+
     public String getStatus() {
         return status;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
-    public String getAtendente() {
-        return atendente;
-    }
-    public void setAtendente(String atendente) {
-        this.atendente = atendente;
+
+    public Funcionarios getFuncionario() {
+        return funcionario;
     }
 
+    public AreasCorpo getAreaCorpo() {
+        return areaCorpo;
+    }
+
+    public Procedimento getProcedimento() {
+        return procedimento;
+    }
+
+    public Clientes getClientes(){
+        return clientes;
     }
 }
