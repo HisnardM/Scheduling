@@ -6,12 +6,11 @@ public class Clientes{
     private String nome;
     private String tipoPessoa;
     private String cpf;
-    private String cnpj;
     private String dataNascimento;
     private String endereço;
     private String bairro;
     private String cidade;
-    private String estado;
+    private String estado; 
     private String sexo;
     private String tipoSanguineo;
     
@@ -39,13 +38,7 @@ public class Clientes{
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    public String getCnpj() {
-        return cnpj;
-    }
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-    public String getDataNascimento() {
+        public String getDataNascimento() {
         return dataNascimento;
     }
     public void setDataNascimento(String dataNascimento) {
