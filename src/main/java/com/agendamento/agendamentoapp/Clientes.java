@@ -1,5 +1,9 @@
 package com.agendamento.agendamentoapp;
 
+/**
+ * Represents a client with various personal information such as name, address, and blood type.
+ * Provides getters and setters for all fields and overrides the toString method to display client information.
+ */
 public class Clientes {
     private int id;
     private String nome;

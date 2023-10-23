@@ -2,6 +2,18 @@ package com.agendamento.agendamentoapp;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Esta classe fornece uma interface de linha de comando para registrar e listar funcionários.
+  * Utiliza um ArrayList para armazenar os funcionários cadastrados e oferece opções para adicionar novos funcionários,
+  * liste todos os funcionários e saia do programa.
+  * A classe também inclui métodos auxiliares para validar números de CPF e CNPJ e força de senha.
+  */
+/**
+ * This class represents a program for registering employees. It allows the user to add new employees to a list, 
+ * list all employees in the list, and exit the program. The program validates the input for CPF, CNPJ, and password 
+ * according to specific criteria. The program uses the Funcionarios class to create new employee objects and add them 
+ * to the list of employees. The program also includes a function to validate CPF numbers.
+ */
 public class CadastroFuncionarios{
     public static void main(String[] args) {
         ArrayList<Funcionarios> listaFuncionarios = new ArrayList<>();
@@ -110,9 +122,13 @@ public class CadastroFuncionarios{
     }
 
     // Função para validar CPF
+    /**
+     * @param cpf
+     * @return
+     */
     public static boolean validarCPF(String cpf) {
         // Remove qualquer caractere não numérico do CPF
-        cpf = cpf.replaceAll("[^0-9]", "");
+        cpf = cpf.replaceAll("\\D", "");
 
         // Verifica se o CPF tem 11 dígitos
         if (cpf.length() != 11) {
@@ -144,44 +160,61 @@ public class CadastroFuncionarios{
     }
 
     // Função para validar CNPJ
+    private static final String CNPJ_REGEX = "\\d{2}\\.\\d{3}\\.\\d{3}\\/\\d{4}\\-\\d{2}";
+
+    /**
+     * @param cnpj
+     * @return
+     */
     public static boolean validarCNPJ(String cnpj) {
-        return false;
-        // Implemente a validação do CNPJ aqui (usando regex, verificando dígitos, etc.)
-        // Retorne true se o CNPJ for válido, caso contrário, retorne false.
-    }
-    public static boolean validarRegistroProfissional(String registroProfissional) {
-        // Remova caracteres especiais, como "-", "/" e espaços em branco
-        String registroLimpo = registroProfissional.replaceAll("[\\-\\//\\s]", "");
-    
-        // Verifique se o registroProfissional limpo tem o formato desejado
-        if (registroLimpo.matches("[A-Z0-9]+")) {
-            return true; // Registro profissional válido
-        } else {
-            return false; // Registro profissional inválido
+        // Remove caracteres especiais, como ".", "/", "-" e espaços em branco
+        String cnpjLimpo = cnpj.replaceAll("[\\.\\/\\-\\s]", "");
+
+        // Verifica se o CNPJ tem o formato desejado
+        if (!cnpjLimpo.matches(CNPJ_REGEX)) {
+            return false;
         }
+        // Calcula os dígitos verificadores
+        int soma = 0;
+        int peso = 2;
+        for (int i = 11; i >= 0; i--) {
+            int digito = Integer.parseInt(cnpjLimpo.substring(i, i + 1));
+            soma += digito * peso;
+            peso = peso == 9 ? 2 : peso + 1;
+        }
+        int digitoVerificador1 = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+        soma = 0;
+        peso = 2;
+        for (int i = 12; i >= 0; i--) {
+            int digito = Integer.parseInt(cnpjLimpo.substring(i, i + 1));
+            soma += digito * peso;
+            peso = peso == 9 ? 2 : peso + 1;
+        }
+        int digitoVerificador2 = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+        // Verifica se os dígitos verificadores são iguais aos dígitos do CNPJ
+        return (digitoVerificador1 == Integer.parseInt(cnpjLimpo.substring(12, 13)) &&
+                digitoVerificador2 == Integer.parseInt(cnpjLimpo.substring(13, 14)));
     }
+    
+    public static boolean validarRegistroProfissional(String registroProfissional) {
+        // Remove caracteres especiais, como "-", "/" e espaços em branco
+        String registroLimpo = registroProfissional.replaceAll("[\\-\\/\\s]", "");
+
+        // Verifica se o registroProfissional limpo tem o formato desejado
+        return registroLimpo.matches("[A-Z0-9]+");
+    }
+
+
     public static boolean validarSenha(String senha) {
         // Verifique se a senha tem pelo menos 8 caracteres
         if (senha.length() < 8) {
             return false;
         }
-    
+
         // Verifique se a senha contém pelo menos uma letra maiúscula
-        if (!senha.matches(".*[A-Z].*")) {
-            return false;
-        }
-    
-        // Verifique se a senha contém pelo menos uma letra minúscula
-        if (!senha.matches(".*[a-z].*")) {
-            return false;
-        }
-    
-        // Verifique se a senha contém pelo menos um caractere especial
-        if (!senha.matches(".*[!@#$%^&*()].*")) {
-            return false;
-        }
-    
-        return true; // Senha atende a todos os critérios
+        return senha.matches(".*[A-Z].*") && senha.matches(".*[a-z].*") && senha.matches(".*[!@#$%^&*()].*");
     }
     
     
