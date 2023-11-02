@@ -1,7 +1,5 @@
-import static org.assertj.core.api.Assertions.assertThat;
+package com.agendamento.crm.hisnard;
 
-import com.agendamento.agendamentoapp.Usuario;
-import com.agendamento.agendamentoapp.UsuarioRepository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

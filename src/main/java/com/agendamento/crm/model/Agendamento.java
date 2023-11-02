@@ -1,26 +1,17 @@
-package com.agendamento.agendamentoapp;
+package com.agendamento.crm.model;
+
 import java.time.LocalDateTime;
 
 public class Agendamento {
-    private static int proximoId = 1;
     private int id;
     private LocalDateTime dataHora;
     private String status;
     private Funcionarios funcionario;
     private AreasCorpo areaCorpo;
-    private Procedimento procedimento;
+    private Procedimentos procedimento;
     private Clientes clientes;
 
-    public Agendamento(LocalDateTime dataHora, Funcionarios funcionario, AreasCorpo areaCorpo, Procedimento procedimento, Clientes clientes) {
-        this.id = proximoId++;
-        this.dataHora = dataHora;
-        this.status = "marcado";
-        this.funcionario = funcionario;
-        this.areaCorpo = areaCorpo;
-        this.procedimento = procedimento;
-        this.clientes = clientes;
-    }
-
+  
     // Getters e setters
     public int getId() {
         return id;
@@ -46,7 +37,7 @@ public class Agendamento {
         return areaCorpo;
     }
 
-    public Procedimento getProcedimento() {
+    public Procedimentos getProcedimento() {
         return procedimento;
     }
 

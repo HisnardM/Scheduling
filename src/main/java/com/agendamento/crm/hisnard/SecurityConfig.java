@@ -1,4 +1,4 @@
-package com.agendamento.agendamentoapp;
+package com.agendamento.crm.hisnard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

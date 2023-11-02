@@ -1,9 +1,5 @@
-package com.agendamento.agendamentoapp;
+package com.agendamento.crm.model;
 
-/**
- * Represents a client with various personal information such as name, address, and blood type.
- * Provides getters and setters for all fields and overrides the toString method to display client information.
- */
 public class Clientes {
     private int id;
     private String nome;
@@ -18,23 +14,6 @@ public class Clientes {
     private String tipoSanguineo;
     private String senha;
 
-   
-
-    // Construtor
-    public Clientes(int id, String nome, String naturalidade, String cpf, String dataNascimento, String endereco, String bairro, String cidade, String estado, String sexo, String tipoSanguineo, String senha) {
-        this.id = id;
-        this.nome = nome;
-        this.naturalidade = naturalidade;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.endereco = endereco;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.sexo = sexo;
-        this.tipoSanguineo = tipoSanguineo;
-        this.senha = senha;
-    }
 
     // Getters e Setters para todos os campos
  public int getId() {
@@ -131,20 +110,5 @@ public class Clientes {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-    // Sobrescrevendo o método toString para exibir informações do cliente
-    @Override
-    public String toString() {
-        return "Cliente: " + nome +
-               "\nID: " + id +
-               "\nNaturalidade: " + naturalidade +
-               "\nCPF: " + cpf +
-               "\nData de Nascimento: " + dataNascimento +
-               "\nEndereço: " + endereco +
-               "\nBairro: " + bairro +
-               "\nCidade: " + cidade +
-               "\nEstado: " + estado +
-               "\nSexo: " + sexo +
-               "\nTipo Sanguíneo: " + tipoSanguineo;
     }
 }

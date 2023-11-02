@@ -1,5 +1,4 @@
-package com.agendamento.agendamentoapp;
-
+package com.agendamento.crm.model;
 
 public class Funcionarios {
     private String nome; //obg
@@ -21,23 +20,6 @@ public class Funcionarios {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    // Construtor
-    public Funcionarios(String nome, String registroProfissional, String cpf, String cnpj,
-                       String endereco, String uf, String cidade, String bairro, String celular, String email,  String senha, String userName) {
-        this.nome = nome;
-        this.registroProfissional = registroProfissional;
-        this.cpf = cpf;
-        this.cnpj = cnpj; //ele sera opcional
-        this.endereco = endereco;
-        this.uf = uf;
-        this.cidade = cidade;
-        this.bairro = bairro;
-        this.celular = celular;
-        this.email = email;
-        this.senha = senha;
         this.userName = userName;
     }
 
@@ -128,24 +110,5 @@ public class Funcionarios {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    
-
-    // Sobrescrevendo o método toString para exibir informações do funcionário
-    @Override
-    public String toString() {
-        return "Funcionário: " + nome +
-        (registroProfissional != null ? "\nRegistro Profissional: " + registroProfissional : "") + // Exibir Registro Profissional apenas se não for nulo
-               "\nCPF: " + cpf +
-               (cnpj != null ? "\nCNPJ: " + cnpj : "") + // Exibir CNPJ apenas se não for nulo
-               "\nEndereço: " + endereco +
-               "\nUF: " + uf +
-               "\nCidade: " + cidade +
-               "\nBairro: " + bairro +
-               "\nCelular: " + celular + 
-               "\nEmail: " + email + 
-               "\nSenha: " + senha + 
-               "\nUserName: " + userName + "\n";
     }
 }

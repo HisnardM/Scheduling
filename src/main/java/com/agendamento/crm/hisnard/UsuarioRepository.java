@@ -1,4 +1,4 @@
-package com.agendamento.agendamentoapp;
+package com.agendamento.crm.hisnard;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

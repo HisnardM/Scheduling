@@ -1,4 +1,4 @@
-package com.agendamento.agendamentoapp;
+package com.agendamento.crm.hisnard;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
