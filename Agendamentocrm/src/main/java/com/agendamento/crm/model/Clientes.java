@@ -1,5 +1,6 @@
 package com.agendamento.crm.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,18 +11,30 @@ public class Clientes {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String nome;
-    private String naturalidade;
+    @Column(nullable = false)
+    private String etinia;
+    @Column(nullable = false)
     private String cpf;
+    @Column(nullable = false)
     private String dataNascimento;
+    @Column(nullable = false)
     private String endereco;
+    @Column(nullable = false)
     private String bairro;
+    @Column(nullable = false)
     private String cidade;
+    @Column(nullable = false)
     private String estado;
+    @Column(nullable = false)
     private String sexo;
     private String tipoSanguineo;
+    @Column(nullable = false)
     private String senha;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String telefone;
 
 
@@ -38,12 +51,12 @@ public class Clientes {
         this.nome = nome;
     }
 
-    public String getNaturalidade() {
-        return naturalidade;
+    public String getEtinia() {
+        return etinia;
     }
 
-    public void setNaturalidade(String naturalidade) {
-        this.naturalidade = naturalidade;
+    public void setEtinia(String etinia) {
+        this.etinia = etinia;
     }
 
     public String getCpf() {

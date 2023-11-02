@@ -2,6 +2,25 @@ package com.agendamento.crm.controller;
 
 //nunca jamais ousem tocar no codigo de novo ass Leandro (sem alterações)
 
+
+//para testes com a api
+//{
+//"nome": "leoncio",
+//"etinia": "branca",
+//"cpf": "101.682.640-05",
+//"dataNascimento": "01/01/2000",
+//"endereco": "Rua A, 123",
+//"bairro": "Centro",
+//"cidade": "São Paulo",
+//"estado": "SP",
+//"sexo": "M",
+//"tipoSanguineo": "O+",
+//"senha": "Senha123!",
+//"email": "fulano@example.com",
+//"telefone": "(11) 99999-9999"
+	//}
+//
+
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -74,7 +93,7 @@ public class ClienteController {
             // Atualiza os dados do cliente
             Clientes clienteAtualizado = clienteExistente.get();
             clienteAtualizado.setNome(cliente.getNome());
-            clienteAtualizado.setNaturalidade(cliente.getNaturalidade());
+            clienteAtualizado.setEtinia(cliente.getEtinia());
             clienteAtualizado.setCpf(cliente.getCpf());
             clienteAtualizado.setDataNascimento(cliente.getDataNascimento());
             clienteAtualizado.setEndereco(cliente.getEndereco());
