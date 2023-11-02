@@ -6,7 +6,7 @@ public class Procedimentos {
     private String descricao;
     private double preco;
 
-    //Getters e Setters para os campos
+    //Getters e Setters para os campos.
     public String getNome() {
         return nome;
     }
