@@ -1,7 +1,15 @@
 package com.agendamento.crm.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Clientes {
-    private int id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String naturalidade;
     private String cpf;
@@ -13,17 +21,15 @@ public class Clientes {
     private String sexo;
     private String tipoSanguineo;
     private String senha;
+    private String email;
+    private String telefone;
 
 
     // Getters e Setters para todos os campos
- public int getId() {
+
+    public Long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    }  
     public String getNome() {
         return nome;
     }
@@ -111,4 +117,20 @@ public class Clientes {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 }
